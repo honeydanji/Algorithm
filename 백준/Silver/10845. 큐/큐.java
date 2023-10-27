@@ -1,7 +1,8 @@
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 public class Main {
@@ -23,8 +24,8 @@ public class Main {
         queue = new int[capacity];
 
         // 결과값 저장
-        // int[] result = new int[n];
-        List<Integer> result = new ArrayList<>();
+        // List<Integer> result = new ArrayList<>();
+        List<Integer> result = new LinkedList<>();
         String[] pp;
 
         String inputValue = "";
@@ -34,38 +35,30 @@ public class Main {
                 case "pop" :
                 int value = pop();
                 if (value == -1) { // 값이 없으면 -1 저장
-                    // result[i] = -1;
                     result.add(-1);
                     break;
                 }else{
-                    // result[i] = value;
                     result.add(value);
                     break;
                 }
                 
                 case "size" :
-                // result[i] = size();
                 result.add(size());
                 break;
 
                 case "empty" :
-                // result[i] = empty();
                 result.add(empty());
                 break;
 
                 case "front" : 
-                // result[i] = front();
                 result.add(front());
                 break;
 
                 case "back" : 
-                // result[i] = back();
                 result.add(back());
                 break;
 
                 default : pp = inputValue.split(" "); 
-                // result[i] = Integer.parseInt(pp[1]);
-                // push(result[i]);
                 push(Integer.parseInt(pp[1]));
                 break;
             }
