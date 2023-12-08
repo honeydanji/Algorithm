@@ -1,20 +1,25 @@
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-
+ 
 public class Main {
-
-    public static void main(String[] args) throws NumberFormatException, IOException {
-        BufferedReader bf = new BufferedReader(new InputStreamReader(System.in));
-
-        int n = Integer.parseInt(bf.readLine());
-        String[] test = bf.readLine().split("");
-        int total = 0;
-
-        for (int i = 0; i < n; i++) {
-            total += ((int)test[i].charAt(0) - 96) * (int)Math.pow(31, i);
-        }
-        System.out.println(total);
-    }
-    
+	static final int M = 1234567891;
+	
+	public static void main(String[] args) throws IOException {
+		BufferedReader bw = new BufferedReader(new InputStreamReader(System.in));
+		int L = Integer.parseInt(bw.readLine());
+		String str = new String(bw.readLine());
+		long sum = 0;
+		long pow = 1;
+        
+		char[] arr = str.toCharArray();
+		for(int i = 0; i < L; i++)
+		{
+			sum += (arr[i] - 'a' + 1) * pow % M; 
+			pow = pow * 31 % M; 
+		}
+        
+		long hash = sum % M;
+		System.out.println(hash);
+	}
 }
